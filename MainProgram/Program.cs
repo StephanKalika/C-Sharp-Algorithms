@@ -24,6 +24,9 @@ namespace C_Sharp_Algorithms
             Graphs_UndirectedSparseGraphTest.DoTest();
             Graphs_UndirectedWeightedDenseGraphTest.DoTest();
             Graphs_UndirectedWeightedSparseGraphTest.DoTest();
+
+
+            Algorithms.Common.Comparers.IsNumber(10d);
         }
     }
 }

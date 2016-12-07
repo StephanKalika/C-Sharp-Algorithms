@@ -9,11 +9,22 @@ namespace Algorithms.Common
     {
         /// <summary>
         /// Swaps two values in an IList<T> collection given their indexes.
+        /// Throw exception when firstIndex or secondIndex is out of range.
         /// </summary>
         public static void Swap<T>(this IList<T> list, int firstIndex, int secondIndex)
         {
-            if (list.Count < 2 || firstIndex == secondIndex)   //This check is not required but Partition function may make many calls so its for perf reason
+            //This check is not required but Partition function may make many calls so its for performance reason 
+            if (list.Count < 2 || firstIndex == secondIndex)   
                 return;
+
+            if (firstIndex >= list.Count)
+            {
+                throw new IndexOutOfRangeException(nameof(firstIndex) + " out of range");
+            }
+            if (secondIndex >= list.Count)
+            {
+                throw new IndexOutOfRangeException(nameof(secondIndex) + " out of range");
+            }
 
             var temp = list[firstIndex];
             list[firstIndex] = list[secondIndex];
@@ -22,11 +33,22 @@ namespace Algorithms.Common
 
         /// <summary>
         /// Swaps two values in an ArrayList<T> collection given their indexes.
+        /// Throw exception when firstIndex or secondIndex is out of range.
         /// </summary>
         public static void Swap<T>(this ArrayList<T> list, int firstIndex, int secondIndex)
         {
-            if (list.Count < 2 || firstIndex == secondIndex)   //This check is not required but Partition function may make many calls so its for perf reason
+            //This check is not required but Partition function may make many calls so its for performance reason
+            if (list.Count < 2 || firstIndex == secondIndex)   
                 return;
+
+            if (firstIndex >= list.Count)
+            {
+                throw new IndexOutOfRangeException(nameof(firstIndex) + " out of range");
+            }
+            if (secondIndex >= list.Count)
+            {
+                throw new IndexOutOfRangeException(nameof(secondIndex) + " out of range");
+            }
 
             var temp = list[firstIndex];
             list[firstIndex] = list[secondIndex];
