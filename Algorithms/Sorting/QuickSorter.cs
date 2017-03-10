@@ -7,8 +7,12 @@ namespace Algorithms.Sorting
 {
     public static class QuickSorter
     {
-        //
-        // The public APIs for the quick sort algorithm.
+        /// <summary>
+        /// The public APIs for the quick sort algorithm.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="collection"></param>
+        /// <param name="comparer"></param>
         public static void QuickSort<T>(this IList<T> collection, Comparer<T> comparer = null)
         {
             int startIndex = 0;
@@ -22,9 +26,15 @@ namespace Algorithms.Sorting
         }
 
 
-        //
-        // Private static method
-        // The recursive quick sort algorithm
+        /// <summary>
+        /// Private static method
+        /// The recursive quick sort algorithm
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="collection"></param>
+        /// <param name="leftmostIndex"></param>
+        /// <param name="rightmostIndex"></param>
+        /// <param name="comparer"></param>
         private static void InternalQuickSort<T>(this IList<T> collection, int leftmostIndex, int rightmostIndex, Comparer<T> comparer)
         {
             //
@@ -38,14 +48,21 @@ namespace Algorithms.Sorting
         }
 
 
-        //
-        // Private static method
-        // The partition function, used in the quick sort algorithm
+        /// <summary>
+        /// Private static method
+        /// The partition function, used in the quick sort algorithm
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="collection"></param>
+        /// <param name="leftmostIndex"></param>
+        /// <param name="rightmostIndex"></param>
+        /// <param name="comparer"></param>
+        /// <returns></returns>
         private static int InternalPartition<T>(this IList<T> collection, int leftmostIndex, int rightmostIndex, Comparer<T> comparer)
         {
             int wallIndex, pivotIndex;
 
-            // Choose the pivot
+            // Choose the pivot(轴)
             pivotIndex = rightmostIndex;
             T pivotValue = collection[pivotIndex];
 
